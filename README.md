@@ -1,4 +1,4 @@
-# 💳 Meus Cartões
+# 💳 Pag.AI
 
 Aplicação web leve e responsiva para gerenciamento de despesas e faturas de cartão de crédito por mês, cartão, categoria e pessoa — sem necessidade de servidor ou banco de dados externo.
 
