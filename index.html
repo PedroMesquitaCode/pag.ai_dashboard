@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meus Cartões</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<div class="w">
+<header>
+<h1>💳 Meus Cartões</h1>
+<div><button class="s" id="mp" title="Mês anterior">‹</button> <input type="month" id="mes"> <button class="s" id="mn" title="Próximo mês">›</button> <button class="s" id="tema">Tema</button></div>
+</header>
+
+<div id="warn" class="card" hidden>⚠️ Não consegui salvar neste navegador (armazenamento bloqueado ou cheio). Use o Backup abaixo para não perder dados.</div>
+<div class="g4" id="kpis"></div>
+
+<div class="card"><h2>Cartões do mês</h2>
+<div id="cl"></div><button class="s" id="addcard">+ Cartão</button></div>
+
+<div class="card"><h2>Nova conta na fatura</h2>
+<div class="fadd"><select id="fc"></select><div style="display:flex;gap:6px"><select id="fp" style="flex:1;min-width:0"></select><button class="s" id="fpn" title="Adicionar pessoa">+</button></div><select id="fg"></select><input id="fs" placeholder="Descrição (ex.: TV)"><input type="number" id="fv" step="0.01" min="0" placeholder="Valor"><input type="number" id="fa" min="1" max="60" placeholder="Parcela nº (ex.: 3)" title="Qual parcela é a deste mês"><input type="number" id="fn" min="1" max="60" placeholder="de quantas (ex.: 10)" title="Total de parcelas"><button id="fadd">Adicionar</button></div>
+<p class="hint">Valor = o valor de cada parcela. Compra parcelada: informe a parcela deste mês e o total (ex.: 3 de 10); as demais aparecem nos meses seguintes. Para repetir uma conta fixa (assinatura), use a coluna “Repetir”.</p></div>
+
+<div class="card"><h2>Contas por pessoa</h2>
+<div class="flt"><select id="flc"></select><select id="flg"></select><select id="fls"><option value="">Todos os status</option><option value="p">Pendentes</option><option value="o">Pagos</option></select></div>
+<div id="pl"></div><button class="s" id="addp">+ Pessoa</button>
+<p id="ft" style="margin:14px 0 0"></p></div>
+
+<div class="card"><h2>Relatório de faturas</h2>
+<div class="flt"><select id="rp"></select><button id="pdfb">Salvar em PDF</button><button class="s" id="prnb">Imprimir</button></div>
+<p class="hint">Gera o relatório do mês selecionado, com o resumo por cartão e as contas de cada pessoa.</p></div>
+
+<div class="card"><h2>Faturas por categoria</h2><select id="cf" style="margin-bottom:12px"></select><div id="cats"></div></div>
+
+<div class="card"><h2>Categorias e metas mensais</h2><div id="cedit"></div>
+<button class="s" id="addc">+ Categoria</button></div>
+
+<div class="card"><h2>Backup</h2>
+<p style="color:var(--mut);margin:0 0 8px;font-size:13px">Os dados ficam salvos neste navegador. Para levar para outro aparelho, gere o backup, copie o texto e cole-o lá em “Restaurar”.</p>
+<textarea id="bk" placeholder="Backup em JSON"></textarea>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><button id="gen">Gerar backup</button><button class="s" id="res">Restaurar</button><button class="s" id="clr" style="color:var(--red)">Apagar tudo</button></div>
+</div>
+</div>
+<div id="rel"></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
